@@ -3,7 +3,8 @@ import axios from "axios";
 
 const Url_Base = "https://api.themoviedb.org/3/movie/",
     key = "0e497e56fc016411a1dce35d53eac51a",
-    Idioma = 'es';
+    Idioma = 'es',
+    Url_2 = "https://api.themoviedb.org/3/search/movie/";
 
 export const getEstrenos = () => dispatch => {
     dispatch({
@@ -36,7 +37,7 @@ export const getPelicula = (IdPelicula) => dispatch => {
 export const getBusqueda = (query, pagina) => dispatch => {
     dispatch({
         type: tipos.GET_BUSQUEDA,
-        payload: axios.get(`https://api.themoviedb.org/3/search/movie/?query=${query}&page=${pagina}&api_key=${key}&language=${Idioma}`)
+        payload: axios.get(`${Url_2}?query=${query}&page=${pagina}&api_key=${key}&language=${Idioma}`)
     });
 }
 
